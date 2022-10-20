@@ -7,8 +7,8 @@ import { OrbitControls } from '@react-three/drei';
 // import { GeoJsonGeometry } from 'three-geojson-geometry';
 // import { geoGraticule10 } from 'd3-geo';
 
-import ThreeGraticule from '../three-graticule';
-import ThreeCountries from '../three-countries';
+import ThreeGraticule from '../fiber/ThreeGraticule';
+import ThreeCountries from '../fiber/ThreeCountries';
 
 const PaperSection = styled(Paper)`
   padding: 0.5rem;
@@ -24,14 +24,14 @@ const PaperSection = styled(Paper)`
   }
 `
 
-export const ExampleSection = ({ children, height = 80, text = "" }) => (
+export const ExampleSection = ({ children, height = 500, text = "" }) => (
   <PaperSection height={height}>
     {children || <Typography>{text}</Typography>}
   </PaperSection>
 )
 
 const GlobeWrapper = ({ children }) => {
-  return <div style={{ margin: 0, height: 500, border: '1px solid #232323' }}>{children}</div>;
+  return <div style={{ margin: 0, height: 800, border: '1px solid #232323' }}>{children}</div>;
 };
 
 export default function DashboardView() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { GeoJsonGeometry } from 'three-geojson-geometry';
 
-import geoJson from './ne_110m_admin_0_countries.geojson.json';
+import geoJson from '../data/ne_110m_admin_0_countries.geojson.json';
 
 const ThreeCountries = () => {
   return (

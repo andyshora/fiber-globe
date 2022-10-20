@@ -15,7 +15,7 @@ const NAV_WIDTH = 80
 
 const AppWrap = styled.div`
   display: grid;
-  grid-template-columns: ${80}px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   min-height: 500px;
 `
@@ -110,17 +110,6 @@ export default function App() {
   const theme = useTheme()
   return (
     <AppWrap>
-      <NavWrap>
-        <NavItems>
-          {routes.map(({ active, icon, title, url }) => (
-            <NavItem key={title} theme={theme}>
-              <Link to={url} title={title} getProps={isActive}>
-                <IconButton>{icon}</IconButton>
-              </Link>
-            </NavItem>
-          ))}
-        </NavItems>
-      </NavWrap>
       <MainWrap>
         <HeaderWrap>
           <Typography variant="h4">App Title</Typography>
