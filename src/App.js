@@ -18,6 +18,7 @@ const AppWrap = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   min-height: 500px;
+  background: black;
 `
 const NavWrap = styled.nav`
   width: ${NAV_WIDTH}px;
@@ -26,16 +27,13 @@ const NavWrap = styled.nav`
 const HeaderWrap = styled.header`
   height: ${NAV_WIDTH}px;
   width: 100%;
-  display: flex;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 `
 const MainWrap = styled.main``
 const MainContentWrap = styled.div`
   min-height: 600px;
-
-  border-top: 1px solid rgb(49, 49, 49);
-  border-left: 1px solid rgb(49, 49, 49);
-  padding: 1rem;
 `
 
 const NavItems = styled.ul`
@@ -100,7 +98,6 @@ export default function App() {
     <AppWrap>
       <MainWrap>
         <HeaderWrap>
-          <Typography variant="h4">App Title</Typography>
         </HeaderWrap>
         <MainContentWrap>
           <Router>

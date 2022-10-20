@@ -1,10 +1,7 @@
-
-
-import { Alarm } from '@mui/icons-material';
-import { Sphere } from '@react-three/drei';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Vector3 } from 'three';
 import { GeoJsonGeometry } from 'three-geojson-geometry';
+import { scaleSqrt } from "d3-scale"
 
 /**
  * GeoJson Format
@@ -167,13 +164,17 @@ function createPointsData() {
     return data
 }
   
-const ThreePoints = () => {
+const ThreePoints = ({ onDataChange }) => {
     
+    const [activeIndex, setActiveIndex] = useState(-1)
+    const pointsData = createPointsData()
+    const geoJson = createGeoJsonFromData(pointsData)
 
-    const data = createPointsData()
-    const geoJson = createGeoJsonFromData(data)
-
-    console.log(geoJson)
+    useEffect(() => {
+        if (typeof onDataChange === "function" && pointsData) {
+            onDataChange(pointsData[activeIndex])
+        }
+    }, [activeIndex])
 
     // random points
     // const N = 4e4;
@@ -183,23 +184,21 @@ const ThreePoints = () => {
     //     resolution: 5
     // };
 
+    const radiusScale = scaleSqrt().domain([0, 300]).range([0.002, 0.04])
+    const getPointColor = i => i === activeIndex ? "#ffcc00" : "#f3f3f3"
     return (
       <group>
         {geoJson.features.map((data, index) => {
         const { geometry } = data;
         const geoGeom = new GeoJsonGeometry(geometry, 1)
-        console.log(geoGeom)
         const vec3 = new Vector3(parseFloat(geoGeom.attributes.position.array[0]), parseFloat(geoGeom.attributes.position.array[1]), parseFloat(geoGeom.attributes.position.array[2]))
-        const vec32 = new Vector3(0, 0, 0)
-        console.log('vec3', vec3)
+
+        const radius = radiusScale(pointsData[index].ais)
         return (
         <group key={index}>
-            {/* <points  geometry={geoGeom}>
-                <lineBasicMaterial color="#cc0066" />
-            </points> */}
-            <mesh position={vec3}>
-                <sphereGeometry args={[0.005, 32]} />
-                <meshPhongMaterial color="#f3f3f3" />
+            <mesh position={vec3} onClick={() => setActiveIndex(index)}>
+                <sphereGeometry args={[radius, 32]} />
+                <meshPhongMaterial color={getPointColor(index)} />
             </mesh>
         </group>
         );
