@@ -1,9 +1,12 @@
 import React, { useState } from "react"
-import { Box, Grid, Paper, Typography } from "@mui/material"
+import { Box, Grid, Paper, Typography, useTheme } from "@mui/material"
 import styled from "styled-components"
+import { NumericScore, Flag } from "@bcgx-personalization-community/gamma.ui"
 import {
   useWindowHeight
 } from '@react-hook/window-size/throttled'
+
+import countries from "i18n-iso-countries"
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -13,6 +16,7 @@ import { OrbitControls } from '@react-three/drei';
 import ThreeGraticule from '../fiber/ThreeGraticule';
 import ThreeCountries from '../fiber/ThreeCountries';
 import ThreePoints from '../fiber/ThreePoints';
+import Waffle from "../components/Waffle";
 
 const FadeWrap = styled.div`
   position: relative;
@@ -56,9 +60,23 @@ const GlobeWrapper = ({ children }) => {
 
 export default function DashboardView() {
   const [activePointData, setActivePointData] = useState(null)
+  const [countryCode, setCountryCode] = useState(null)
+  const [countryName, setCountryName] = useState(null)
+  const theme = useTheme()
 
   const handleDataChange = data => {
     setActivePointData(data)
+
+    let cc = null
+    if (data && data.address) {
+      const arr = data.address.split(',')
+      const cName = arr[arr.length - 1].trim()
+      setCountryName(cName)
+      cc = countries.getAlpha2Code("United States of America", "en")
+      console.log(countryName, cName)
+    }
+  
+    setCountryCode(cc)
   }
   return (
     <Grid container spacing={2}>
@@ -87,13 +105,19 @@ export default function DashboardView() {
       </GlobeWrapper>
       </Grid>
       <Grid item xs={2}>
-        <Box padding={2} style={{ position: "relative", zIndex: 1 }}>
+        <Box padding={0} sx={{ position: "relative", zIndex: 1 }}>
         {activePointData ? (
-          <div>
-            <Typography variant="h3">{activePointData.city}</Typography>
-            <Typography variant="h4">Total BCG.X {activePointData.bcgx}</Typography>
-            <Typography variant="h4">AI &amp; Software: {activePointData.ais}</Typography>
-          </div>
+          <Box padding={2} sx={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", width: "100%" }}>
+            <div style={{ margin: "1rem 0 2rem", textAlign: "center", width: "100%" }}>
+              <Typography variant="h2" sx={{ textAlign: "center", width: "100%", textTransform: "uppercase" }}>{activePointData.city}</Typography>
+              <Typography variant="subtitle" sx={{ textAlign: "center", width: "100%", textTransform: "uppercase"  }}>{countryName}</Typography>
+            </div>
+            {countryCode ? <Flag countryCode={countryCode} size="small" /> : ""}
+            <NumericScore value={activePointData.bcgx} label="BCG.X" />
+            {/* <Waffle blockWidth={5} blockGap={1} data={[activePointData.bcgx - activePointData.ais, activePointData.ais]} colors={["lightGrey", theme.palette.primary.main]} /> */}
+            <NumericScore value={activePointData.ais} label="AI & Software" color="positive" />
+
+          </Box>
         ) : ''}
         </Box>
       </Grid>

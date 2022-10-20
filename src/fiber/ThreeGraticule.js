@@ -6,7 +6,7 @@ const ThreeGraticule = () => {
   return (
     <group>
       <lineSegments geometry={new GeoJsonGeometry(geoGraticule10(), 1)}>
-        <lineBasicMaterial color="#3c3c3c" />
+        <lineBasicMaterial color="#3c3c3c" opacity={0.3} transparent />
       </lineSegments>
     </group>
   );
