@@ -9,6 +9,7 @@ import { OrbitControls } from '@react-three/drei';
 
 import ThreeGraticule from '../fiber/ThreeGraticule';
 import ThreeCountries from '../fiber/ThreeCountries';
+import ThreePoints from '../fiber/ThreePoints';
 
 const PaperSection = styled(Paper)`
   padding: 0.5rem;
@@ -51,12 +52,13 @@ export default function DashboardView() {
           <OrbitControls enableRotate={true} enableZoom={false} enablePan={false} />
           <ambientLight intensity={1.3} />
           <pointLight position={[-10, -10, -10]} intensity={0.4} />
-          <mesh>
+          {/* <mesh>
             <sphereGeometry args={[1, 32]} />
             <meshPhongMaterial color="#191919" transparent={true} opacity={0.8} />
-          </mesh>
+          </mesh> */}
           <ThreeGraticule />
           <ThreeCountries />
+          <ThreePoints />
         </Canvas>
       </GlobeWrapper>
       </Grid>

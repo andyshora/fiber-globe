@@ -82,21 +82,9 @@ const EmptyView = ({ title }) => <Typography>{title}</Typography>
 const routes = [
   {
     icon: <LinearScaleOutlined />,
-    title: "Graphs",
+    title: "Earth",
     Component: DashboardView,
-    url: "graphs"
-  },
-  {
-    icon: <AccountTreeOutlined />,
-    title: "Data Explorer",
-    Component: EmptyView,
-    url: "explorer"
-  },
-  {
-    icon: <Domain />,
-    title: "Business",
-    Component: EmptyView,
-    url: "business"
+    url: "/"
   }
 ]
 
