@@ -1,6 +1,6 @@
-import React from 'react';
-import { GeoJsonGeometry } from 'three-geojson-geometry';
-import { geoGraticule10 } from 'd3-geo';
+import React from "react";
+import { GeoJsonGeometry } from "three-geojson-geometry";
+import { geoGraticule10 } from "d3-geo";
 
 const ThreeGraticule = () => {
   return (

@@ -9,8 +9,10 @@
     "build-storybook": "build-storybook",
     "start": "craco start",
     "build": "craco build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andyshora/fiber-globe.git"
@@ -51,8 +53,11 @@
     "d3-ease": "^3.0.1",
     "d3-interpolate": "^3.0.1",
     "d3-scale": "^4.0.2",
+    "eslint": "^8.25.0",
+    "gh-pages": "^4.0.0",
     "i18n-iso-countries": "^7.5.0",
     "material-table": "^1.48.0",
+    "prettier-eslint": "^15.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
