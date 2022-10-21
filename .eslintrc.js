@@ -12,166 +12,159 @@ https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FA
 Happy linting! 💖
 */
 module.exports = {
-    env: {
-      browser: true,
-      node: true,
-      es6: true
-    },
-    extends: [
-      "plugin:react/recommended",
-      "prettier"
-    ],
-    parserOptions: {
-      sourceType: "module",
-      ecmaFeatures: {
-        jsx: true
-      }
-    },
-    plugins: [
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  extends: ["plugin:react/recommended", "prettier"],
+  parserOptions: {
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
+  plugins: [
     //   "eslint-plugin-react",
     //   "eslint-plugin-import",
     //   "eslint-plugin-prefer-arrow",
     //   "eslint-plugin-jsdoc",
     //   "eslint-plugin-unicorn",
     //   "@typescript-eslint"
+  ],
+  rules: {
+    "arrow-parens": [
+      "error",
+      "as-needed",
+      {
+        requireForBlockBody: true
+      }
     ],
-    rules: {
-      "arrow-parens": [
-        "error",
-        "as-needed",
-        {
-          requireForBlockBody: true
-        }
-      ],
-      "brace-style": ["off", "off"],
-      "comma-dangle": "error",
-      complexity: "off",
-      "constructor-super": "error",
-      "dot-notation": "error",
-      "eol-last": "off",
-      eqeqeq: ["error", "smart"],
-      "guard-for-in": "error",
-      "id-blacklist": [
-        "error",
-        "any",
-        "Number",
-        "number",
-        "String",
-        "string",
-        "Boolean",
-        "boolean",
-        "Undefined",
-        "undefined"
-      ],
-      "id-match": "error",
-      "import/no-extraneous-dependencies": "error",
-      "import/no-internal-modules": "off",
-      indent: "off",
-      "jsdoc/check-alignment": "error",
-      "jsdoc/check-indentation": "error",
-      "jsdoc/newline-after-description": "off",
-      "linebreak-style": "off",
-      "max-classes-per-file": ["error", 1],
-      "max-len": "off",
-      "new-parens": "off",
-      "newline-per-chained-call": "off",
-      "no-bitwise": "off",
-      "no-caller": "error",
-      "no-cond-assign": "error",
-      "no-console": "off",
-      "no-debugger": "error",
-      "no-duplicate-case": "error",
-      "no-duplicate-imports": "error",
-      "no-empty": "error",
-      "no-empty-function": "off",
-      "no-eval": "error",
-      "no-extra-bind": "error",
-      "no-extra-semi": "off",
-      "no-fallthrough": "off",
-      "no-invalid-this": "off",
-      "no-irregular-whitespace": "off",
-      "no-multiple-empty-lines": "off",
-      "no-new-func": "error",
-      "no-new-wrappers": "error",
-      "no-redeclare": "error",
-      "no-return-await": "error",
-      "no-sequences": "error",
-      "no-shadow": [
-        "off",
-        {
-          hoist: "all"
-        }
-      ],
-      "no-sparse-arrays": "error",
-      "no-template-curly-in-string": "error",
-      "no-throw-literal": "error",
-      "no-trailing-spaces": "off",
-      "no-undef-init": "error",
-      "no-underscore-dangle": "off",
-      "no-unsafe-finally": "error",
-      "no-unused-expressions": [
-        "error",
-        {
-          allowShortCircuit: true
-        }
-      ],
-      "no-unused-labels": "off",
-      "no-use-before-define": "off",
-      "no-var": "error",
-      "object-shorthand": "error",
-      "one-var": ["error", "never"],
-      "padded-blocks": [
-        "off",
-        {
-          blocks: "never"
-        },
-        {
-          allowSingleLineBlocks: true
-        }
-      ],
-      "prefer-arrow/prefer-arrow-functions": "off",
-      "prefer-const": "error",
-      "prefer-object-spread": "error",
-      "quote-props": "off",
-      quotes: "off",
-      radix: "error",
-      "react/jsx-boolean-value": "off",
-      "react/jsx-curly-spacing": ["error", "never"],
-      "react/display-name": "off",
-      "react/jsx-equals-spacing": "off",
-      "react/jsx-key": "error",
-      "react/jsx-no-bind": "off",
-      "react/jsx-tag-spacing": [
-        "error",
-        {
-          afterOpening: "never",
-          closingSlash: "never",
-          beforeSelfClosing: "allow"
-        }
-      ],
-      "react/jsx-wrap-multilines": "off",
-      "react/self-closing-comp": "error",
-      "react/prop-types": "off",
-      semi: ["error", "never"],
-      "space-before-function-paren": [
-        "error",
-        {
-          anonymous: "always",
-          named: "never",
-          asyncArrow: "always"
-        }
-      ],
-      "space-in-parens": ["off", "never"],
-      "spaced-comment": [
-        "error",
-        "always",
-        {
-          markers: ["/"]
-        }
-      ],
-      "unicorn/prefer-ternary": "off",
-      "use-isnan": "error",
-      "valid-typeof": "off"
-    }
+    "brace-style": ["off", "off"],
+    "comma-dangle": "error",
+    complexity: "off",
+    "constructor-super": "error",
+    "dot-notation": "error",
+    "eol-last": "off",
+    eqeqeq: ["error", "smart"],
+    "guard-for-in": "error",
+    "id-blacklist": [
+      "error",
+      "any",
+      "Number",
+      "number",
+      "String",
+      "string",
+      "Boolean",
+      "boolean",
+      "Undefined",
+      "undefined"
+    ],
+    "id-match": "error",
+    "import/no-internal-modules": "off",
+    indent: "off",
+    "linebreak-style": "off",
+    "max-classes-per-file": ["error", 1],
+    "max-len": "off",
+    "new-parens": "off",
+    "newline-per-chained-call": "off",
+    "no-bitwise": "off",
+    "no-caller": "error",
+    "no-cond-assign": "error",
+    "no-console": "off",
+    "no-debugger": "error",
+    "no-duplicate-case": "error",
+    "no-duplicate-imports": "error",
+    "no-empty": "error",
+    "no-empty-function": "off",
+    "no-eval": "error",
+    "no-extra-bind": "error",
+    "no-extra-semi": "off",
+    "no-fallthrough": "off",
+    "no-invalid-this": "off",
+    "no-irregular-whitespace": "off",
+    "no-multiple-empty-lines": "off",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-redeclare": "error",
+    "no-return-await": "error",
+    "no-sequences": "error",
+    "no-shadow": [
+      "off",
+      {
+        hoist: "all"
+      }
+    ],
+    "no-sparse-arrays": "error",
+    "no-template-curly-in-string": "error",
+    "no-throw-literal": "error",
+    "no-trailing-spaces": "off",
+    "no-undef-init": "error",
+    "no-underscore-dangle": "off",
+    "no-unsafe-finally": "error",
+    "no-unused-expressions": [
+      "error",
+      {
+        allowShortCircuit: true
+      }
+    ],
+    "no-unused-labels": "off",
+    "no-use-before-define": "off",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "one-var": ["error", "never"],
+    "padded-blocks": [
+      "off",
+      {
+        blocks: "never"
+      },
+      {
+        allowSingleLineBlocks: true
+      }
+    ],
+    "prefer-arrow/prefer-arrow-functions": "off",
+    "prefer-const": "error",
+    "prefer-object-spread": "error",
+    "quote-props": "off",
+    quotes: "off",
+    radix: "error",
+    "react/no-unknown-property": "off",
+    "react/jsx-boolean-value": "off",
+    "react/jsx-curly-spacing": ["error", "never"],
+    "react/display-name": "off",
+    "react/jsx-equals-spacing": "off",
+    "react/jsx-key": "error",
+    "react/jsx-no-bind": "off",
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        afterOpening: "never",
+        closingSlash: "never",
+        beforeSelfClosing: "allow"
+      }
+    ],
+    "react/jsx-wrap-multilines": "off",
+    "react/self-closing-comp": "error",
+    "react/prop-types": "off",
+    semi: ["error", "never"],
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always"
+      }
+    ],
+    "space-in-parens": ["off", "never"],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        markers: ["/"]
+      }
+    ],
+    "unicorn/prefer-ternary": "off",
+    "use-isnan": "error",
+    "valid-typeof": "off"
   }
-  
+}

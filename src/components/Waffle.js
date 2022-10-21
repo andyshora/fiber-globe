@@ -47,7 +47,7 @@ export const Waffle = ({
     const _numColsAndRows = Math.ceil(Math.sqrt(maxNum))
     let totalBlockCount = 0
     let activeDataIndex = 0
-    let normalisedData = data.map(d => Math.max(d, 0))
+    const normalisedData = data.map(d => Math.max(d, 0))
 
     // row-by-row layout, left-to-right, top-to-bottom
     for (let i = 0; i < _numColsAndRows; i++) {
@@ -59,7 +59,7 @@ export const Waffle = ({
         }
         if (normalisedData[activeDataIndex] === 0) {
           if (activeDataIndex + 1 === normalisedData.length) {
-            break;
+            break
           } else {
             activeDataIndex++
           }

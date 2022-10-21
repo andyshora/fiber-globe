@@ -1,6 +1,6 @@
-import React from "react";
-import { GeoJsonGeometry } from "three-geojson-geometry";
-import { geoGraticule10 } from "d3-geo";
+import React from "react"
+import { GeoJsonGeometry } from "three-geojson-geometry"
+import { geoGraticule10 } from "d3-geo"
 
 const ThreeGraticule = () => {
   return (
@@ -9,7 +9,7 @@ const ThreeGraticule = () => {
         <lineBasicMaterial color="#3c3c3c" opacity={0.3} transparent />
       </lineSegments>
     </group>
-  );
-};
+  )
+}
 
-export default ThreeGraticule;
+export default ThreeGraticule

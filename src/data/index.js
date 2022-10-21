@@ -1,16 +1,16 @@
 export function createPointsData() {
-  const data = [];
+  const data = []
 
   function addData(d) {
     if (d.ais === 0 || d.city.indexOf("Federal Corp") !== -1) {
-      return;
+      return
     }
-    let d2;
-    if ((d2 = data.find((el) => el.city === d.city))) {
-      d2.ais += d.ais;
-      d2.bcgx += d.bcgx;
+    let d2
+    if ((d2 = data.find(el => el.city === d.city))) {
+      d2.ais += d.ais
+      d2.bcgx += d.bcgx
     } else {
-      data.push(d);
+      data.push(d)
     }
   }
   addData({
@@ -21,8 +21,8 @@ export function createPointsData() {
     bcgx: 149,
     ais: 143,
     lat: 12.9715987,
-    lng: 77.5945627,
-  });
+    lng: 77.5945627
+  })
   addData({
     color: "white",
     size: 20,
@@ -31,8 +31,8 @@ export function createPointsData() {
     bcgx: 217,
     ais: 199,
     lat: 28.4594965,
-    lng: 77.0266383,
-  });
+    lng: 77.0266383
+  })
   addData({
     color: "white",
     size: 20,
@@ -41,8 +41,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 3,
     lat: 39.904211,
-    lng: 116.407395,
-  });
+    lng: 116.407395
+  })
   addData({
     color: "white",
     size: 20,
@@ -51,8 +51,8 @@ export function createPointsData() {
     bcgx: 13,
     ais: 12,
     lat: 12.9715987,
-    lng: 77.5945627,
-  });
+    lng: 77.5945627
+  })
   addData({
     color: "white",
     size: 20,
@@ -61,8 +61,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 1,
     lat: 13.0826802,
-    lng: 80.2707184,
-  });
+    lng: 80.2707184
+  })
   addData({
     color: "white",
     size: 20,
@@ -71,8 +71,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 0,
     lat: 31.22752,
-    lng: 121.4972,
-  });
+    lng: 121.4972
+  })
   addData({
     color: "white",
     size: 20,
@@ -81,8 +81,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 0,
     lat: 22.5428599,
-    lng: 114.05956,
-  });
+    lng: 114.05956
+  })
   addData({
     color: "white",
     size: 20,
@@ -91,8 +91,8 @@ export function createPointsData() {
     bcgx: 55,
     ais: 0,
     lat: 1.352083,
-    lng: 103.819836,
-  });
+    lng: 103.819836
+  })
   addData({
     color: "white",
     size: 20,
@@ -101,8 +101,8 @@ export function createPointsData() {
     bcgx: 55,
     ais: 0,
     lat: -33.8688197,
-    lng: 151.2092955,
-  });
+    lng: 151.2092955
+  })
   addData({
     color: "white",
     size: 20,
@@ -111,8 +111,8 @@ export function createPointsData() {
     bcgx: 54,
     ais: 0,
     lat: 35.6761919,
-    lng: 139.6503106,
-  });
+    lng: 139.6503106
+  })
   addData({
     color: "white",
     size: 20,
@@ -121,8 +121,8 @@ export function createPointsData() {
     bcgx: 14,
     ais: 0,
     lat: 28.6139391,
-    lng: 77.2090212,
-  });
+    lng: 77.2090212
+  })
   addData({
     color: "white",
     size: 20,
@@ -131,8 +131,8 @@ export function createPointsData() {
     bcgx: 9,
     ais: 5,
     lat: 22.3193039,
-    lng: 114.1693611,
-  });
+    lng: 114.1693611
+  })
   addData({
     color: "white",
     size: 20,
@@ -141,8 +141,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 12,
     lat: -37.8136276,
-    lng: 144.9630576,
-  });
+    lng: 144.9630576
+  })
   addData({
     color: "white",
     size: 20,
@@ -151,8 +151,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 3,
     lat: 19.0759837,
-    lng: 72.8776559,
-  });
+    lng: 72.8776559
+  })
   addData({
     color: "white",
     size: 20,
@@ -161,8 +161,8 @@ export function createPointsData() {
     bcgx: 7,
     ais: 5,
     lat: 28.6139391,
-    lng: 77.2090212,
-  });
+    lng: 77.2090212
+  })
   addData({
     color: "white",
     size: 20,
@@ -171,8 +171,8 @@ export function createPointsData() {
     bcgx: 26,
     ais: 22,
     lat: -31.9523123,
-    lng: 115.861309,
-  });
+    lng: 115.861309
+  })
   addData({
     color: "white",
     size: 20,
@@ -181,8 +181,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 4,
     lat: 37.566535,
-    lng: 126.9779692,
-  });
+    lng: 126.9779692
+  })
   addData({
     color: "white",
     size: 20,
@@ -191,8 +191,8 @@ export function createPointsData() {
     bcgx: 17,
     ais: 16,
     lat: 31.230416,
-    lng: 121.473701,
-  });
+    lng: 121.473701
+  })
   addData({
     color: "white",
     size: 20,
@@ -201,8 +201,8 @@ export function createPointsData() {
     bcgx: 16,
     ais: 13,
     lat: 22.5428599,
-    lng: 114.05956,
-  });
+    lng: 114.05956
+  })
   addData({
     color: "white",
     size: 20,
@@ -211,8 +211,8 @@ export function createPointsData() {
     bcgx: 31,
     ais: 27,
     lat: 1.352083,
-    lng: 103.819836,
-  });
+    lng: 103.819836
+  })
   addData({
     color: "white",
     size: 20,
@@ -221,8 +221,8 @@ export function createPointsData() {
     bcgx: 34,
     ais: 30,
     lat: -33.8688197,
-    lng: 151.2092955,
-  });
+    lng: 151.2092955
+  })
   addData({
     color: "white",
     size: 20,
@@ -231,8 +231,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 2,
     lat: 25.0329636,
-    lng: 121.5654268,
-  });
+    lng: 121.5654268
+  })
   addData({
     color: "white",
     size: 20,
@@ -241,8 +241,8 @@ export function createPointsData() {
     bcgx: 59,
     ais: 45,
     lat: 35.6761919,
-    lng: 139.6503106,
-  });
+    lng: 139.6503106
+  })
   addData({
     color: "white",
     size: 20,
@@ -251,8 +251,8 @@ export function createPointsData() {
     bcgx: 24,
     ais: 22,
     lat: 51.5072178,
-    lng: -0.1275862,
-  });
+    lng: -0.1275862
+  })
   addData({
     color: "white",
     size: 20,
@@ -261,8 +261,8 @@ export function createPointsData() {
     bcgx: 18,
     ais: 16,
     lat: 40.4167754,
-    lng: -3.7037902,
-  });
+    lng: -3.7037902
+  })
   addData({
     color: "white",
     size: 20,
@@ -271,8 +271,8 @@ export function createPointsData() {
     bcgx: 9,
     ais: 8,
     lat: 52.3675734,
-    lng: 4.9041389,
-  });
+    lng: 4.9041389
+  })
   addData({
     color: "white",
     size: 20,
@@ -281,8 +281,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 0,
     lat: 37.9838096,
-    lng: 23.7275388,
-  });
+    lng: 23.7275388
+  })
   addData({
     color: "white",
     size: 20,
@@ -291,8 +291,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 1,
     lat: 41.3873974,
-    lng: 2.168568,
-  });
+    lng: 2.168568
+  })
   addData({
     color: "white",
     size: 20,
@@ -301,8 +301,8 @@ export function createPointsData() {
     bcgx: 17,
     ais: 16,
     lat: 52.5200066,
-    lng: 13.404954,
-  });
+    lng: 13.404954
+  })
   addData({
     color: "white",
     size: 20,
@@ -311,8 +311,8 @@ export function createPointsData() {
     bcgx: 15,
     ais: 15,
     lat: 4.7109886,
-    lng: -74.072092,
-  });
+    lng: -74.072092
+  })
   addData({
     color: "white",
     size: 20,
@@ -321,8 +321,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 50.8476424,
-    lng: 4.3571696,
-  });
+    lng: 4.3571696
+  })
   addData({
     color: "white",
     size: 20,
@@ -331,8 +331,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 47.497912,
-    lng: 19.040235,
-  });
+    lng: 19.040235
+  })
   addData({
     color: "white",
     size: 20,
@@ -341,8 +341,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: -34.6036844,
-    lng: -58.3815591,
-  });
+    lng: -58.3815591
+  })
   addData({
     color: "white",
     size: 20,
@@ -351,8 +351,8 @@ export function createPointsData() {
     bcgx: 31,
     ais: 29,
     lat: 33.5731104,
-    lng: -7.5898434,
-  });
+    lng: -7.5898434
+  })
   addData({
     color: "white",
     size: 20,
@@ -361,8 +361,8 @@ export function createPointsData() {
     bcgx: 7,
     ais: 4,
     lat: 50.937531,
-    lng: 6.9602786,
-  });
+    lng: 6.9602786
+  })
   addData({
     color: "white",
     size: 20,
@@ -371,8 +371,8 @@ export function createPointsData() {
     bcgx: 6,
     ais: 6,
     lat: 55.6760968,
-    lng: 12.5683371,
-  });
+    lng: 12.5683371
+  })
   addData({
     color: "white",
     size: 20,
@@ -381,8 +381,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 25.2854473,
-    lng: 51.5310398,
-  });
+    lng: 51.5310398
+  })
   addData({
     color: "white",
     size: 20,
@@ -391,8 +391,8 @@ export function createPointsData() {
     bcgx: 19,
     ais: 16,
     lat: 25.2609919,
-    lng: 55.3731211,
-  });
+    lng: 55.3731211
+  })
   addData({
     color: "white",
     size: 20,
@@ -401,8 +401,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 12,
     lat: 51.2277411,
-    lng: 6.7734556,
-  });
+    lng: 6.7734556
+  })
   addData({
     color: "white",
     size: 20,
@@ -411,8 +411,8 @@ export function createPointsData() {
     bcgx: 152,
     ais: 4,
     lat: 52.5200066,
-    lng: 13.404954,
-  });
+    lng: 13.404954
+  })
   addData({
     color: "white",
     size: 20,
@@ -421,8 +421,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 0,
     lat: 33.5731104,
-    lng: -7.5898434,
-  });
+    lng: -7.5898434
+  })
   addData({
     color: "white",
     size: 20,
@@ -431,8 +431,8 @@ export function createPointsData() {
     bcgx: 13,
     ais: 0,
     lat: 25.2048493,
-    lng: 55.2707828,
-  });
+    lng: 55.2707828
+  })
   addData({
     color: "white",
     size: 20,
@@ -441,8 +441,8 @@ export function createPointsData() {
     bcgx: 96,
     ais: 0,
     lat: 51.5072178,
-    lng: -0.1275862,
-  });
+    lng: -0.1275862
+  })
   addData({
     color: "white",
     size: 20,
@@ -451,8 +451,8 @@ export function createPointsData() {
     bcgx: 6,
     ais: 0,
     lat: 48.856614,
-    lng: 2.3522219,
-  });
+    lng: 2.3522219
+  })
   addData({
     color: "white",
     size: 20,
@@ -461,8 +461,8 @@ export function createPointsData() {
     bcgx: 21,
     ais: 18,
     lat: 50.1109221,
-    lng: 8.6821267,
-  });
+    lng: 8.6821267
+  })
   addData({
     color: "white",
     size: 20,
@@ -471,8 +471,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 3,
     lat: 53.5510846,
-    lng: 9.9936818,
-  });
+    lng: 9.9936818
+  })
   addData({
     color: "white",
     size: 20,
@@ -481,8 +481,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 3,
     lat: 60.1698557,
-    lng: 24.938379,
-  });
+    lng: 24.938379
+  })
   addData({
     color: "white",
     size: 20,
@@ -491,8 +491,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 41.0082376,
-    lng: 28.9783589,
-  });
+    lng: 28.9783589
+  })
   addData({
     color: "white",
     size: 20,
@@ -501,8 +501,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 3,
     lat: -26.2041028,
-    lng: 28.0473051,
-  });
+    lng: 28.0473051
+  })
   addData({
     color: "white",
     size: 20,
@@ -511,8 +511,8 @@ export function createPointsData() {
     bcgx: 50,
     ais: 44,
     lat: 51.5072178,
-    lng: -0.1275862,
-  });
+    lng: -0.1275862
+  })
   addData({
     color: "white",
     size: 20,
@@ -521,8 +521,8 @@ export function createPointsData() {
     bcgx: 64,
     ais: 58,
     lat: 40.4167754,
-    lng: -3.7037902,
-  });
+    lng: -3.7037902
+  })
   addData({
     color: "white",
     size: 20,
@@ -531,8 +531,8 @@ export function createPointsData() {
     bcgx: 26,
     ais: 25,
     lat: 45.4642035,
-    lng: 9.189982,
-  });
+    lng: 9.189982
+  })
   addData({
     color: "white",
     size: 20,
@@ -541,8 +541,8 @@ export function createPointsData() {
     bcgx: 56,
     ais: 45,
     lat: 48.1351253,
-    lng: 11.5819806,
-  });
+    lng: 11.5819806
+  })
   addData({
     color: "white",
     size: 20,
@@ -551,8 +551,8 @@ export function createPointsData() {
     bcgx: 6,
     ais: 6,
     lat: 59.9138688,
-    lng: 10.7522454,
-  });
+    lng: 10.7522454
+  })
   addData({
     color: "white",
     size: 20,
@@ -561,8 +561,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 30.1588129,
-    lng: -85.6602058,
-  });
+    lng: -85.6602058
+  })
   addData({
     color: "white",
     size: 20,
@@ -571,8 +571,8 @@ export function createPointsData() {
     bcgx: 126,
     ais: 100,
     lat: 48.856614,
-    lng: 2.3522219,
-  });
+    lng: 2.3522219
+  })
   addData({
     color: "white",
     size: 20,
@@ -581,8 +581,8 @@ export function createPointsData() {
     bcgx: 18,
     ais: 7,
     lat: 52.5200066,
-    lng: 13.404954,
-  });
+    lng: 13.404954
+  })
   addData({
     color: "white",
     size: 20,
@@ -591,8 +591,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 1,
     lat: 33.5731104,
-    lng: -7.5898434,
-  });
+    lng: -7.5898434
+  })
   addData({
     color: "white",
     size: 20,
@@ -601,8 +601,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 0,
     lat: 25.2048493,
-    lng: 55.2707828,
-  });
+    lng: 55.2707828
+  })
   addData({
     color: "white",
     size: 20,
@@ -611,8 +611,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 50.1109221,
-    lng: 8.6821267,
-  });
+    lng: 8.6821267
+  })
   addData({
     color: "white",
     size: 20,
@@ -621,8 +621,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 0,
     lat: -26.2041028,
-    lng: 28.0473051,
-  });
+    lng: 28.0473051
+  })
   addData({
     color: "white",
     size: 20,
@@ -631,8 +631,8 @@ export function createPointsData() {
     bcgx: 25,
     ais: 17,
     lat: 51.5072178,
-    lng: -0.1275862,
-  });
+    lng: -0.1275862
+  })
   addData({
     color: "white",
     size: 20,
@@ -641,8 +641,8 @@ export function createPointsData() {
     bcgx: 5,
     ais: 1,
     lat: 45.4642035,
-    lng: 9.189982,
-  });
+    lng: 9.189982
+  })
   addData({
     color: "white",
     size: 20,
@@ -651,8 +651,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 0,
     lat: 48.856614,
-    lng: 2.3522219,
-  });
+    lng: 2.3522219
+  })
   addData({
     color: "white",
     size: 20,
@@ -661,8 +661,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 1,
     lat: 50.0755381,
-    lng: 14.4378005,
-  });
+    lng: 14.4378005
+  })
   addData({
     color: "white",
     size: 20,
@@ -671,8 +671,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 1,
     lat: -22.9068467,
-    lng: -43.1728965,
-  });
+    lng: -43.1728965
+  })
   addData({
     color: "white",
     size: 20,
@@ -681,8 +681,8 @@ export function createPointsData() {
     bcgx: 14,
     ais: 11,
     lat: -33.4488897,
-    lng: -70.6692655,
-  });
+    lng: -70.6692655
+  })
   addData({
     color: "white",
     size: 20,
@@ -691,8 +691,8 @@ export function createPointsData() {
     bcgx: 55,
     ais: 48,
     lat: -23.5557714,
-    lng: -46.6395571,
-  });
+    lng: -46.6395571
+  })
   addData({
     color: "white",
     size: 20,
@@ -701,8 +701,8 @@ export function createPointsData() {
     bcgx: 18,
     ais: 18,
     lat: 59.3293235,
-    lng: 18.0685808,
-  });
+    lng: 18.0685808
+  })
   addData({
     color: "white",
     size: 20,
@@ -711,8 +711,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 48.7758459,
-    lng: 9.1829321,
-  });
+    lng: 9.1829321
+  })
   addData({
     color: "white",
     size: 20,
@@ -721,8 +721,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 1,
     lat: 32.0852999,
-    lng: 34.7817676,
-  });
+    lng: 34.7817676
+  })
   addData({
     color: "white",
     size: 20,
@@ -731,8 +731,8 @@ export function createPointsData() {
     bcgx: 5,
     ais: 5,
     lat: 48.2081743,
-    lng: 16.3738189,
-  });
+    lng: 16.3738189
+  })
   addData({
     color: "white",
     size: 20,
@@ -741,8 +741,8 @@ export function createPointsData() {
     bcgx: 20,
     ais: 17,
     lat: 52.2296756,
-    lng: 21.0122287,
-  });
+    lng: 21.0122287
+  })
   addData({
     color: "white",
     size: 20,
@@ -751,8 +751,8 @@ export function createPointsData() {
     bcgx: 17,
     ais: 16,
     lat: 47.3768866,
-    lng: 8.541694,
-  });
+    lng: 8.541694
+  })
   addData({
     color: "white",
     size: 20,
@@ -761,8 +761,8 @@ export function createPointsData() {
     bcgx: 57,
     ais: 52,
     lat: 41.8781136,
-    lng: -87.6297982,
-  });
+    lng: -87.6297982
+  })
   addData({
     color: "white",
     size: 20,
@@ -771,8 +771,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 9,
     lat: 33.7489954,
-    lng: -84.3879824,
-  });
+    lng: -84.3879824
+  })
   addData({
     color: "white",
     size: 20,
@@ -781,8 +781,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 4,
     lat: 30.267153,
-    lng: -97.7430608,
-  });
+    lng: -97.7430608
+  })
   addData({
     color: "white",
     size: 20,
@@ -791,8 +791,8 @@ export function createPointsData() {
     bcgx: 32,
     ais: 26,
     lat: 37.7749295,
-    lng: -122.4194155,
-  });
+    lng: -122.4194155
+  })
   addData({
     color: "white",
     size: 20,
@@ -801,8 +801,8 @@ export function createPointsData() {
     bcgx: 7,
     ais: 7,
     lat: 37.387474,
-    lng: -122.0575434,
-  });
+    lng: -122.0575434
+  })
   addData({
     color: "white",
     size: 20,
@@ -811,8 +811,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 12,
     lat: 0,
-    lng: 0,
-  });
+    lng: 0
+  })
   addData({
     color: "white",
     size: 20,
@@ -821,8 +821,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 0,
     lat: 33.7489954,
-    lng: -84.3879824,
-  });
+    lng: -84.3879824
+  })
   addData({
     color: "white",
     size: 20,
@@ -831,8 +831,8 @@ export function createPointsData() {
     bcgx: 115,
     ais: 99,
     lat: 42.3600825,
-    lng: -71.0588801,
-  });
+    lng: -71.0588801
+  })
   addData({
     color: "white",
     size: 20,
@@ -841,8 +841,8 @@ export function createPointsData() {
     bcgx: 33,
     ais: 30,
     lat: 41.8781136,
-    lng: -87.6297982,
-  });
+    lng: -87.6297982
+  })
   addData({
     color: "white",
     size: 20,
@@ -851,8 +851,8 @@ export function createPointsData() {
     bcgx: 14,
     ais: 13,
     lat: 32.7766642,
-    lng: -96.7969879,
-  });
+    lng: -96.7969879
+  })
   addData({
     color: "white",
     size: 20,
@@ -861,8 +861,8 @@ export function createPointsData() {
     bcgx: 6,
     ais: 6,
     lat: 39.7392358,
-    lng: -104.990251,
-  });
+    lng: -104.990251
+  })
   addData({
     color: "white",
     size: 20,
@@ -871,8 +871,8 @@ export function createPointsData() {
     bcgx: 42,
     ais: 0,
     lat: 45.0522366,
-    lng: -82.4846115,
-  });
+    lng: -82.4846115
+  })
   addData({
     color: "white",
     size: 20,
@@ -881,8 +881,8 @@ export function createPointsData() {
     bcgx: 144,
     ais: 4,
     lat: 33.8847361,
-    lng: -118.4109089,
-  });
+    lng: -118.4109089
+  })
   addData({
     color: "white",
     size: 20,
@@ -891,8 +891,8 @@ export function createPointsData() {
     bcgx: 145,
     ais: 1,
     lat: 40.7127753,
-    lng: -74.0059728,
-  });
+    lng: -74.0059728
+  })
   addData({
     color: "white",
     size: 20,
@@ -901,8 +901,8 @@ export function createPointsData() {
     bcgx: 4,
     ais: 0,
     lat: 47.6062095,
-    lng: -122.3320708,
-  });
+    lng: -122.3320708
+  })
   addData({
     color: "white",
     size: 20,
@@ -911,8 +911,8 @@ export function createPointsData() {
     bcgx: 12,
     ais: 0,
     lat: 38.8770036,
-    lng: -77.0063728,
-  });
+    lng: -77.0063728
+  })
   addData({
     color: "white",
     size: 20,
@@ -921,8 +921,8 @@ export function createPointsData() {
     bcgx: 2,
     ais: 0,
     lat: 42.3600825,
-    lng: -71.0588801,
-  });
+    lng: -71.0588801
+  })
   addData({
     color: "white",
     size: 20,
@@ -931,8 +931,8 @@ export function createPointsData() {
     bcgx: 5,
     ais: 5,
     lat: 29.7604267,
-    lng: -95.3698028,
-  });
+    lng: -95.3698028
+  })
   addData({
     color: "white",
     size: 20,
@@ -941,8 +941,8 @@ export function createPointsData() {
     bcgx: 29,
     ais: 28,
     lat: 34.0522342,
-    lng: -118.2436849,
-  });
+    lng: -118.2436849
+  })
   addData({
     color: "white",
     size: 20,
@@ -951,8 +951,8 @@ export function createPointsData() {
     bcgx: 7,
     ais: 7,
     lat: 25.7616798,
-    lng: -80.1917902,
-  });
+    lng: -80.1917902
+  })
   addData({
     color: "white",
     size: 20,
@@ -961,8 +961,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 44.977753,
-    lng: -93.2650108,
-  });
+    lng: -93.2650108
+  })
   addData({
     color: "white",
     size: 20,
@@ -971,8 +971,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 3,
     lat: 45.5018869,
-    lng: -73.5673919,
-  });
+    lng: -73.5673919
+  })
   addData({
     color: "white",
     size: 20,
@@ -981,8 +981,8 @@ export function createPointsData() {
     bcgx: 1,
     ais: 1,
     lat: 36.1626638,
-    lng: -86.7816016,
-  });
+    lng: -86.7816016
+  })
   addData({
     color: "white",
     size: 20,
@@ -991,8 +991,8 @@ export function createPointsData() {
     bcgx: 7,
     ais: 7,
     lat: 40.0583238,
-    lng: -74.4056612,
-  });
+    lng: -74.4056612
+  })
   addData({
     color: "white",
     size: 20,
@@ -1001,8 +1001,8 @@ export function createPointsData() {
     bcgx: 102,
     ais: 93,
     lat: 40.7127753,
-    lng: -74.0059728,
-  });
+    lng: -74.0059728
+  })
   addData({
     color: "white",
     size: 20,
@@ -1011,8 +1011,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 1,
     lat: 39.9525839,
-    lng: -75.1652215,
-  });
+    lng: -75.1652215
+  })
   addData({
     color: "white",
     size: 20,
@@ -1021,8 +1021,8 @@ export function createPointsData() {
     bcgx: 30,
     ais: 17,
     lat: 40.4406248,
-    lng: -79.9958864,
-  });
+    lng: -79.9958864
+  })
   addData({
     color: "white",
     size: 20,
@@ -1031,8 +1031,8 @@ export function createPointsData() {
     bcgx: 3,
     ais: 3,
     lat: 32.715738,
-    lng: -117.1610838,
-  });
+    lng: -117.1610838
+  })
   addData({
     color: "white",
     size: 20,
@@ -1041,8 +1041,8 @@ export function createPointsData() {
     bcgx: 41,
     ais: 35,
     lat: 47.6062095,
-    lng: -122.3320708,
-  });
+    lng: -122.3320708
+  })
   addData({
     color: "white",
     size: 20,
@@ -1051,8 +1051,8 @@ export function createPointsData() {
     bcgx: 34,
     ais: 30,
     lat: 43.653226,
-    lng: -79.3831843,
-  });
+    lng: -79.3831843
+  })
   addData({
     color: "white",
     size: 20,
@@ -1061,8 +1061,8 @@ export function createPointsData() {
     bcgx: 21,
     ais: 18,
     lat: 38.9071923,
-    lng: -77.0368707,
-  });
+    lng: -77.0368707
+  })
 
-  return data;
+  return data
 }

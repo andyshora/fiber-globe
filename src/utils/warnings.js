@@ -1,3 +1,4 @@
+import React from "react"
 import { css } from "styled-components"
 
 import {
@@ -6,7 +7,7 @@ import {
   Language as LanguageIcon
 } from "@mui/icons-material"
 
-import { useTheme } from "@mui/material"
+import { useTheme, Typography } from "@mui/material"
 
 // these media queries work by enabling the warning by matching a media query
 // for more custom browser targetting:

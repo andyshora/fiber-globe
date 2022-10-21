@@ -256,7 +256,7 @@ const alpha2MappingsByName = {
 }
 
 
-export const getCountryCodeFromName = countryName => {
+export const getCountryCodeFromName = (countryName) => {
     if (Object.keys(alpha2MappingsByName).includes(countryName)) {
         return alpha2MappingsByName[countryName]
     }
