@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Vector3 } from 'three';
 import { GeoJsonGeometry } from 'three-geojson-geometry';
 import { scaleSqrt } from "d3-scale"
+import { useTheme } from "@mui/material"
 
 /**
  * GeoJson Format
@@ -60,7 +61,7 @@ function createPointsData() {
     addData({ color: "white", size: 20, city: 'Beijing', address: 'Beijing, China', bcgx: 4, ais: 3, lat: 39.904211, lng:116.407395 });
     addData({ color: "white", size: 20, city: 'Bengaluru', address: 'Bengaluru, Karnataka, India', bcgx: 13, ais: 12, lat: 12.9715987, lng:77.5945627 });
     addData({ color: "white", size: 20, city: 'Chennai', address: 'Chennai, Tamil Nadu, India', bcgx: 2, ais: 1, lat: 13.0826802, lng:80.2707184 });
-    addData({ color: "white", size: 20, city: 'DV Shanghai', address: 'China, Shang Hai Shi, Huang Pu Qu, CN 上海市 黄浦区 中山东二路 600 600号外滩金融中心N3幢3层 邮政编码: 200120', bcgx: 12, ais: 0, lat: 31.22752, lng:121.4972 });
+    addData({ color: "white", size: 20, city: 'DV Shanghai', address: 'China, Shang Hai Shi, Huang Pu Qu, China', bcgx: 12, ais: 0, lat: 31.22752, lng:121.4972 });
     addData({ color: "white", size: 20, city: 'DV Shenzhen', address: 'Shenzhen, Guangdong Province, China', bcgx: 2, ais: 0, lat: 22.5428599, lng:114.05956 });
     addData({ color: "white", size: 20, city: 'DV Singapore', address: 'Singapore', bcgx: 55, ais: 0, lat: 1.352083, lng:103.819836 });
     addData({ color: "white", size: 20, city: 'DV Sydney', address: 'Sydney NSW, Australia', bcgx: 55, ais: 0, lat: -33.8688197, lng:151.2092955 });
@@ -92,11 +93,11 @@ function createPointsData() {
     addData({ color: "white", size: 20, city: 'Cologne', address: 'Cologne, Germany', bcgx: 7, ais: 4, lat: 50.937531, lng:6.9602786 });
     addData({ color: "white", size: 20, city: 'Copenhagen', address: 'Copenhagen, Denmark', bcgx: 6, ais: 6, lat: 55.6760968, lng:12.5683371 });
     addData({ color: "white", size: 20, city: 'Doha', address: 'Doha, Qatar', bcgx: 1, ais: 1, lat: 25.2854473, lng:51.5310398 });
-    addData({ color: "white", size: 20, city: 'Dubai Free Zone', address: 'Dubai Airport Free Zone - Dubai - United Arab Emirates', bcgx: 19, ais: 16, lat: 25.2609919, lng:55.3731211 });
+    addData({ color: "white", size: 20, city: 'Dubai Free Zone', address: 'Dubai Airport Free Zone, Dubai, United Arab Emirates', bcgx: 19, ais: 16, lat: 25.2609919, lng:55.3731211 });
     addData({ color: "white", size: 20, city: 'Düsseldorf', address: 'Düsseldorf, Germany', bcgx: 12, ais: 12, lat: 51.2277411, lng:6.7734556 });
     addData({ color: "white", size: 20, city: 'Berlin', address: 'Berlin, Germany', bcgx: 152, ais: 4, lat: 52.5200066, lng:13.404954 });
     addData({ color: "white", size: 20, city: 'Casablanca', address: 'Casablanca, Morocco', bcgx: 3, ais: 0, lat: 33.5731104, lng:-7.5898434 });
-    addData({ color: "white", size: 20, city: 'Dubai', address: 'Dubai - United Arab Emirates', bcgx: 13, ais: 0, lat: 25.2048493, lng:55.2707828 });
+    addData({ color: "white", size: 20, city: 'Dubai', address: 'Dubai, United Arab Emirates', bcgx: 13, ais: 0, lat: 25.2048493, lng:55.2707828 });
     addData({ color: "white", size: 20, city: 'London', address: 'London, UK', bcgx: 96, ais: 0, lat: 51.5072178, lng:-0.1275862 });
     addData({ color: "white", size: 20, city: 'Paris', address: 'Paris, France', bcgx: 6, ais: 0, lat: 48.856614, lng:2.3522219 });
     addData({ color: "white", size: 20, city: 'Frankfurt', address: 'Frankfurt, Germany', bcgx: 21, ais: 18, lat: 50.1109221, lng:8.6821267 });
@@ -113,7 +114,7 @@ function createPointsData() {
     addData({ color: "white", size: 20, city: 'Paris', address: 'Paris, France', bcgx: 126, ais: 100, lat: 48.856614, lng:2.3522219 });
     addData({ color: "white", size: 20, city: 'Berlin', address: 'Berlin, Germany', bcgx: 18, ais: 7, lat: 52.5200066, lng:13.404954 });
     addData({ color: "white", size: 20, city: 'Casablanca', address: 'Casablanca, Morocco', bcgx: 4, ais: 1, lat: 33.5731104, lng:-7.5898434 });
-    addData({ color: "white", size: 20, city: 'Dubai', address: 'Dubai - United Arab Emirates', bcgx: 3, ais: 0, lat: 25.2048493, lng:55.2707828 });
+    addData({ color: "white", size: 20, city: 'Dubai', address: 'Dubai, United Arab Emirates', bcgx: 3, ais: 0, lat: 25.2048493, lng:55.2707828 });
     addData({ color: "white", size: 20, city: 'Frankfurt', address: 'Frankfurt, Germany', bcgx: 1, ais: 1, lat: 50.1109221, lng:8.6821267 });
     addData({ color: "white", size: 20, city: 'Johannesburg', address: 'Johannesburg, South Africa', bcgx: 1, ais: 0, lat: -26.2041028, lng:28.0473051 });
     addData({ color: "white", size: 20, city: 'London', address: 'London, UK', bcgx: 25, ais: 17, lat: 51.5072178, lng:-0.1275862 });
@@ -169,6 +170,7 @@ const ThreePoints = ({ onDataChange }) => {
     const [activeIndex, setActiveIndex] = useState(-1)
     const pointsData = createPointsData()
     const geoJson = createGeoJsonFromData(pointsData)
+    const theme = useTheme()
 
     useEffect(() => {
         if (typeof onDataChange === "function" && pointsData) {
@@ -185,7 +187,7 @@ const ThreePoints = ({ onDataChange }) => {
     // };
 
     const radiusScale = scaleSqrt().domain([0, 300]).range([0.002, 0.04])
-    const getPointColor = i => i === activeIndex ? "#ffcc00" : "#f3f3f3"
+    const getPointColor = i => i === activeIndex ? "white" : theme.palette.primary.main
     return (
       <group>
         {geoJson.features.map((data, index) => {
@@ -195,13 +197,13 @@ const ThreePoints = ({ onDataChange }) => {
 
         const radius = radiusScale(pointsData[index].ais)
         return (
-        <group key={index}>
-            <mesh position={vec3} onClick={() => setActiveIndex(index)}>
-                <sphereGeometry args={[radius, 32]} />
-                <meshPhongMaterial color={getPointColor(index)} />
-            </mesh>
-        </group>
-        );
+            <group key={index}>
+                <mesh position={vec3} onClick={() => setActiveIndex(index)}>
+                    <sphereGeometry args={[radius, 32]} />
+                    <meshPhongMaterial color={getPointColor(index)} />
+                </mesh>
+            </group>
+        )
       })}
       </group>
     );

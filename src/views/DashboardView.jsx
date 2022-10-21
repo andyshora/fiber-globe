@@ -6,7 +6,7 @@ import {
   useWindowHeight
 } from '@react-hook/window-size/throttled'
 
-import countries from "i18n-iso-countries"
+import { getCountryCodeFromName } from "../utils/address"
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -25,7 +25,7 @@ const FadeWrap = styled.div`
     content: '';
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 3%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, rgba(0, 0, 0, 1)  97%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 3%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, rgba(0, 0, 0, 1)  97%);
     top: 0;
     left: 0;
     position: fixed;
@@ -45,6 +45,13 @@ const PaperSection = styled(Paper)`
     text-transform: uppercase;
     text-align: center;
   }
+`
+
+const VizWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `
 
 export const ExampleSection = ({ children, height = 500, text = "" }) => (
@@ -72,15 +79,15 @@ export default function DashboardView() {
       const arr = data.address.split(',')
       const cName = arr[arr.length - 1].trim()
       setCountryName(cName)
-      cc = countries.getAlpha2Code("United States of America", "en")
-      console.log(countryName, cName)
+      cc = getCountryCodeFromName(cName)
+      console.log(cName, cc)
     }
   
     setCountryCode(cc)
   }
   return (
     <Grid container spacing={2}>
-      <Grid item xs={10}>
+      <Grid item xs={9}>
       <GlobeWrapper>
         <Canvas
           camera={{
@@ -104,19 +111,27 @@ export default function DashboardView() {
         </Canvas>
       </GlobeWrapper>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={3}>
         <Box padding={0} sx={{ position: "relative", zIndex: 1 }}>
         {activePointData ? (
-          <Box padding={2} sx={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", width: "100%" }}>
-            <div style={{ margin: "1rem 0 2rem", textAlign: "center", width: "100%" }}>
+          <Box padding={2} sx={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%" }}>
+            <div style={{ margin: "2rem 0 2rem", textAlign: "center", width: "100%" }}>
+              {countryCode ? <Flag countryCode={countryCode} size="small" /> : ""}
               <Typography variant="h2" sx={{ textAlign: "center", width: "100%", textTransform: "uppercase" }}>{activePointData.city}</Typography>
               <Typography variant="subtitle" sx={{ textAlign: "center", width: "100%", textTransform: "uppercase"  }}>{countryName}</Typography>
             </div>
-            {countryCode ? <Flag countryCode={countryCode} size="small" /> : ""}
-            <NumericScore value={activePointData.bcgx} label="BCG.X" />
-            {/* <Waffle blockWidth={5} blockGap={1} data={[activePointData.bcgx - activePointData.ais, activePointData.ais]} colors={["lightGrey", theme.palette.primary.main]} /> */}
-            <NumericScore value={activePointData.ais} label="AI & Software" color="positive" />
+            
+            <VizWrap>
+              <NumericScore value={activePointData.bcgx} label="BCG.X" />
+            </VizWrap>
+            <VizWrap>
+            {/* <Waffle width={100} height={100} blockWidth={5} blockGap={1} data={[activePointData.bcgx - activePointData.ais, activePointData.ais]} colors={["rgb(163, 163, 163)", theme.palette.primary.main]} /> */}
 
+            </VizWrap>
+            <VizWrap>
+              {/* <Waffle width={100} height={100} blockWidth={5} blockGap={1} data={[activePointData.ais]} colors={["lightGrey", theme.palette.primary.main]} /> */}
+              <NumericScore value={activePointData.ais} label="AI & Software" color="positive" />
+            </VizWrap>
           </Box>
         ) : ''}
         </Box>

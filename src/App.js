@@ -95,7 +95,7 @@ const isActive = ({ isCurrent }) => {
 export default function App() {
   const theme = useTheme()
   return (
-    <AppWrap>
+    <AppWrap style={{ background: "black" }}>
       <MainWrap>
         <HeaderWrap>
         </HeaderWrap>
