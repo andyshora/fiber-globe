@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import {
   Box,
   Grid,
@@ -95,6 +95,7 @@ export default function DashboardView() {
   const [countryName, setCountryName] = useState(null)
   const [autoRotate, setAutoRotate] = useState(true)
   const theme = useTheme()
+  const orbitControls = useRef(null)
 
   const toggleAutoRotate = () => {
     setAutoRotate(v => !v)
@@ -106,13 +107,12 @@ export default function DashboardView() {
     let cc = null
     if (data && data.address) {
       if (autoRotate) {
-        setAutoRotate(false)
+        // setAutoRotate(false)
       }
       const arr = data.address.split(",")
       const cName = arr[arr.length - 1].trim()
       setCountryName(cName)
       cc = getCountryCodeFromName(cName)
-      console.log(cName, cc)
     }
 
     setCountryCode(cc)
@@ -136,7 +136,8 @@ export default function DashboardView() {
                 enableZoom={false}
                 enablePan={false}
                 autoRotate={autoRotate}
-                autoRotateSpeed={-0.5}
+                autoRotateSpeed={-0.2}
+                ref={orbitControls}
               />
               <ambientLight intensity={1.3} />
               {/* <pointLight position={[-10, -10, -10]} intensity={0.4} /> */}
@@ -230,7 +231,7 @@ export default function DashboardView() {
           aria-label="AutoRotate"
           onClick={toggleAutoRotate}
         >
-          {autoRotate ? <PauseSharp /> : <PlayArrow />} Auto-rotate
+          {/* {autoRotate ? <PauseSharp /> : <PlayArrow />} Auto-rotate */}
         </IconButton>
       </ControlsWrap>
     </>
