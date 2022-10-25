@@ -41,7 +41,7 @@ module.exports = {
       }
     ],
     "brace-style": ["off", "off"],
-    "comma-dangle": "error",
+    "comma-dangle": "off",
     complexity: "off",
     "constructor-super": "error",
     "dot-notation": "error",

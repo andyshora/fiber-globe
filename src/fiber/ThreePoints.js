@@ -4,6 +4,7 @@ import { GeoJsonGeometry } from "three-geojson-geometry"
 import { scaleSqrt } from "d3-scale"
 import { useTheme } from "@mui/material"
 import { createPointsData } from "../data"
+import _sum from "lodash/sum"
 
 /**
  * GeoJson Format
@@ -60,7 +61,7 @@ const ThreePoints = ({ onDataChange }) => {
   //     resolution: 5
   // };
 
-  const radiusScale = scaleSqrt().domain([0, 300]).range([0.002, 0.04])
+  const radiusScale = scaleSqrt().domain([0, 500]).range([0.002, 0.04])
   const getPointColor = i =>
     i === activeIndex ? "white" : theme.palette.primary.main
   return (
@@ -74,15 +75,36 @@ const ThreePoints = ({ onDataChange }) => {
           parseFloat(geoGeom.attributes.position.array[2])
         )
 
-        const radius = radiusScale(pointsData[index].ais)
-        return (
-          <group key={index}>
+        const r = _sum(pointsData[index].ais)
+        const radius = radiusScale(r)
+
+        const meshContents =
+          radius < 0.02 ? (
+            <group>
+              <mesh position={vec3}>
+                <sphereGeometry args={[radius, 32]} />
+                <meshPhongMaterial color={getPointColor(index)} />
+              </mesh>
+              <mesh
+                position={vec3}
+                onClick={() => setActiveIndex(index)}
+                opacity={0}
+              >
+                <sphereGeometry args={[0.03, 32]} />
+                <meshPhongMaterial
+                  color={getPointColor(index)}
+                  opacity={0}
+                  transparent={true}
+                />
+              </mesh>
+            </group>
+          ) : (
             <mesh position={vec3} onClick={() => setActiveIndex(index)}>
               <sphereGeometry args={[radius, 32]} />
               <meshPhongMaterial color={getPointColor(index)} />
             </mesh>
-          </group>
-        )
+          )
+        return <group key={index}>{meshContents}</group>
       })}
     </group>
   )

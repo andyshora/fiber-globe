@@ -7,6 +7,8 @@ import {
   IconButton,
   useTheme
 } from "@mui/material"
+import _sum from "lodash/sum"
+
 import styled from "styled-components"
 import { NumericScore, Flag } from "@bcgx-personalization-community/gamma.ui"
 import { useWindowHeight } from "@react-hook/window-size/throttled"
@@ -205,7 +207,10 @@ export default function DashboardView() {
                 </div>
 
                 <VizWrap>
-                  <NumericScore value={activePointData.bcgx} label="BCG.X" />
+                  <NumericScore
+                    value={_sum(activePointData.bcgx)}
+                    label="BCG.X"
+                  />
                 </VizWrap>
                 <VizWrap>
                   {/* <Waffle width={100} height={100} blockWidth={5} blockGap={1} data={[activePointData.bcgx - activePointData.ais, activePointData.ais]} colors={["rgb(163, 163, 163)", theme.palette.primary.main]} /> */}
@@ -213,7 +218,7 @@ export default function DashboardView() {
                 <VizWrap>
                   {/* <Waffle width={100} height={100} blockWidth={5} blockGap={1} data={[activePointData.ais]} colors={["lightGrey", theme.palette.primary.main]} /> */}
                   <NumericScore
-                    value={activePointData.ais}
+                    value={_sum(activePointData.ais)}
                     label="AI & Software"
                     color="positive"
                   />
@@ -231,7 +236,7 @@ export default function DashboardView() {
           aria-label="AutoRotate"
           onClick={toggleAutoRotate}
         >
-          {/* {autoRotate ? <PauseSharp /> : <PlayArrow />} Auto-rotate */}
+          {autoRotate ? <PauseSharp /> : <PlayArrow />}
         </IconButton>
       </ControlsWrap>
     </>

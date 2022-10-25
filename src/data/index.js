@@ -1,22 +1,37 @@
-export function createPointsData() {
-  const data = []
+import _findIndex from "lodash/findIndex"
 
-  function addData(d) {
-    if (d.ais === 0 || d.city.indexOf("Federal Corp") !== -1) {
-      return
-    }
-    let d2
-    if ((d2 = data.find(el => el.city === d.city))) {
-      d2.ais += d.ais
-      d2.bcgx += d.bcgx
-    } else {
-      data.push(d)
-    }
+let data = []
+
+function addData(d) {
+  if (d.bcgx === 0 || d.city.indexOf("Federal Corp") !== -1) {
+    return
   }
+
+  const indx = _findIndex(data, { city: d.city.trim() })
+  if (indx !== -1) {
+    data[indx].ais.push(d.ais)
+    data[indx].bcgx.push(d.bcgx)
+    data[indx].offices.push(d.office)
+  } else {
+    const datum = {
+      city: d.city.trim(),
+      offices: [d.office],
+      ais: [d.ais],
+      bcgx: [d.bcgx],
+      lat: d.lat,
+      lng: d.lng,
+      address: d.address
+    }
+
+    data.push(datum)
+  }
+}
+
+export function createPointsData() {
+  data = []
   addData({
-    color: "white",
-    size: 20,
     city: "Bengaluru",
+    office: "ACC - Bengaluru",
     address: "Bengaluru, Karnataka, India",
     bcgx: 149,
     ais: 143,
@@ -24,9 +39,8 @@ export function createPointsData() {
     lng: 77.5945627
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Gurugram",
+    office: "ACC - Gurugram",
     address: "Gurugram, Haryana, India",
     bcgx: 217,
     ais: 199,
@@ -34,9 +48,8 @@ export function createPointsData() {
     lng: 77.0266383
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Beijing",
+    office: "Beijing",
     address: "Beijing, China",
     bcgx: 4,
     ais: 3,
@@ -44,9 +57,8 @@ export function createPointsData() {
     lng: 116.407395
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Bengaluru",
+    office: "Bengaluru",
     address: "Bengaluru, Karnataka, India",
     bcgx: 13,
     ais: 12,
@@ -54,9 +66,8 @@ export function createPointsData() {
     lng: 77.5945627
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Chennai",
+    office: "Chennai",
     address: "Chennai, Tamil Nadu, India",
     bcgx: 2,
     ais: 1,
@@ -64,19 +75,17 @@ export function createPointsData() {
     lng: 80.2707184
   })
   addData({
-    color: "white",
-    size: 20,
     city: "DV Shanghai",
-    address: "China, Shang Hai Shi, Huang Pu Qu, China",
+    office: "DV Shanghai",
+    address: "Shanghai, China",
     bcgx: 12,
     ais: 0,
     lat: 31.22752,
     lng: 121.4972
   })
   addData({
-    color: "white",
-    size: 20,
     city: "DV Shenzhen",
+    office: "DV Shenzhen",
     address: "Shenzhen, Guangdong Province, China",
     bcgx: 2,
     ais: 0,
@@ -84,9 +93,8 @@ export function createPointsData() {
     lng: 114.05956
   })
   addData({
-    color: "white",
-    size: 20,
     city: "DV Singapore",
+    office: "DV Singapore",
     address: "Singapore",
     bcgx: 55,
     ais: 0,
@@ -94,9 +102,8 @@ export function createPointsData() {
     lng: 103.819836
   })
   addData({
-    color: "white",
-    size: 20,
     city: "DV Sydney",
+    office: "DV Sydney",
     address: "Sydney NSW, Australia",
     bcgx: 55,
     ais: 0,
@@ -104,9 +111,8 @@ export function createPointsData() {
     lng: 151.2092955
   })
   addData({
-    color: "white",
-    size: 20,
     city: "DV Tokyo",
+    office: "DV Tokyo",
     address: "Tokyo, Japan",
     bcgx: 54,
     ais: 0,
@@ -114,9 +120,8 @@ export function createPointsData() {
     lng: 139.6503106
   })
   addData({
-    color: "white",
-    size: 20,
     city: "New Delhi",
+    office: "Global Services New Delhi",
     address: "New Delhi, Delhi, India",
     bcgx: 14,
     ais: 0,
@@ -124,9 +129,8 @@ export function createPointsData() {
     lng: 77.2090212
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Hong Kong",
+    office: "Hong Kong",
     address: "Hong Kong",
     bcgx: 9,
     ais: 5,
@@ -134,9 +138,8 @@ export function createPointsData() {
     lng: 114.1693611
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Melbourne",
+    office: "Melbourne",
     address: "Melbourne VIC, Australia",
     bcgx: 12,
     ais: 12,
@@ -144,9 +147,8 @@ export function createPointsData() {
     lng: 144.9630576
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Mumbai",
+    office: "Mumbai",
     address: "Mumbai, Maharashtra, India",
     bcgx: 4,
     ais: 3,
@@ -154,9 +156,8 @@ export function createPointsData() {
     lng: 72.8776559
   })
   addData({
-    color: "white",
-    size: 20,
     city: "New Delhi",
+    office: "New Delhi",
     address: "New Delhi, Delhi, India",
     bcgx: 7,
     ais: 5,
@@ -164,9 +165,8 @@ export function createPointsData() {
     lng: 77.2090212
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Perth",
+    office: "Perth",
     address: "Perth WA, Australia",
     bcgx: 26,
     ais: 22,
@@ -174,9 +174,8 @@ export function createPointsData() {
     lng: 115.861309
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Seoul",
+    office: "Seoul",
     address: "Seoul, South Korea",
     bcgx: 4,
     ais: 4,
@@ -184,9 +183,8 @@ export function createPointsData() {
     lng: 126.9779692
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Shanghai",
+    office: "Shanghai",
     address: "Shanghai, China",
     bcgx: 17,
     ais: 16,
@@ -194,9 +192,8 @@ export function createPointsData() {
     lng: 121.473701
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Shenzhen",
+    office: "Shenzhen",
     address: "Shenzhen, Guangdong Province, China",
     bcgx: 16,
     ais: 13,
@@ -204,9 +201,8 @@ export function createPointsData() {
     lng: 114.05956
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Singapore",
+    office: "Singapore",
     address: "Singapore",
     bcgx: 31,
     ais: 27,
@@ -214,9 +210,8 @@ export function createPointsData() {
     lng: 103.819836
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Sydney",
+    office: "Sydney",
     address: "Sydney NSW, Australia",
     bcgx: 34,
     ais: 30,
@@ -224,9 +219,8 @@ export function createPointsData() {
     lng: 151.2092955
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Taipei",
+    office: "Taipei",
     address: "Taipei City, Taiwan",
     bcgx: 2,
     ais: 2,
@@ -234,9 +228,8 @@ export function createPointsData() {
     lng: 121.5654268
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Tokyo",
+    office: "Tokyo",
     address: "Tokyo, Japan",
     bcgx: 59,
     ais: 45,
@@ -244,9 +237,8 @@ export function createPointsData() {
     lng: 139.6503106
   })
   addData({
-    color: "white",
-    size: 20,
     city: "London",
+    office: "ACC - London",
     address: "London, UK",
     bcgx: 24,
     ais: 22,
@@ -254,9 +246,8 @@ export function createPointsData() {
     lng: -0.1275862
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Madrid",
+    office: "ACC - Madrid",
     address: "Madrid, Spain",
     bcgx: 18,
     ais: 16,
@@ -264,9 +255,8 @@ export function createPointsData() {
     lng: -3.7037902
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Amsterdam",
+    office: "Amsterdam",
     address: "Amsterdam, Netherlands",
     bcgx: 9,
     ais: 8,
@@ -274,9 +264,8 @@ export function createPointsData() {
     lng: 4.9041389
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Athens",
+    office: "Athens",
     address: "Athens, Greece",
     bcgx: 1,
     ais: 0,
@@ -284,9 +273,8 @@ export function createPointsData() {
     lng: 23.7275388
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Barcelona",
+    office: "Barcelona",
     address: "Barcelona, Spain",
     bcgx: 2,
     ais: 1,
@@ -294,9 +282,8 @@ export function createPointsData() {
     lng: 2.168568
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Berlin",
+    office: "Berlin",
     address: "Berlin, Germany",
     bcgx: 17,
     ais: 16,
@@ -304,9 +291,8 @@ export function createPointsData() {
     lng: 13.404954
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Bogotá",
+    office: "Bogotá",
     address: "Bogotá, Bogota, Colombia",
     bcgx: 15,
     ais: 15,
@@ -314,9 +300,8 @@ export function createPointsData() {
     lng: -74.072092
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Brussels",
+    office: "Brussels",
     address: "Brussels, Belgium",
     bcgx: 1,
     ais: 1,
@@ -324,9 +309,8 @@ export function createPointsData() {
     lng: 4.3571696
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Budapest",
+    office: "Budapest",
     address: "Budapest, Hungary",
     bcgx: 1,
     ais: 1,
@@ -334,9 +318,8 @@ export function createPointsData() {
     lng: 19.040235
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Buenos Aires",
+    office: "Buenos Aires",
     address: "Buenos Aires, Argentina",
     bcgx: 1,
     ais: 1,
@@ -344,9 +327,8 @@ export function createPointsData() {
     lng: -58.3815591
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Casablanca",
+    office: "Casablanca",
     address: "Casablanca, Morocco",
     bcgx: 31,
     ais: 29,
@@ -354,9 +336,8 @@ export function createPointsData() {
     lng: -7.5898434
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Cologne",
+    office: "Cologne",
     address: "Cologne, Germany",
     bcgx: 7,
     ais: 4,
@@ -364,9 +345,8 @@ export function createPointsData() {
     lng: 6.9602786
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Copenhagen",
+    office: "Copenhagen",
     address: "Copenhagen, Denmark",
     bcgx: 6,
     ais: 6,
@@ -374,9 +354,8 @@ export function createPointsData() {
     lng: 12.5683371
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Doha",
+    office: "Doha",
     address: "Doha, Qatar",
     bcgx: 1,
     ais: 1,
@@ -384,19 +363,17 @@ export function createPointsData() {
     lng: 51.5310398
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Dubai Free Zone",
-    address: "Dubai Airport Free Zone, Dubai, United Arab Emirates",
+    office: "Dubai Free Zone",
+    address: "Dubai Airport Free Zone - Dubai - United Arab Emirates",
     bcgx: 19,
     ais: 16,
     lat: 25.2609919,
     lng: 55.3731211
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Düsseldorf",
+    office: "Düsseldorf",
     address: "Düsseldorf, Germany",
     bcgx: 12,
     ais: 12,
@@ -404,9 +381,8 @@ export function createPointsData() {
     lng: 6.7734556
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Berlin",
+    office: "DV Berlin",
     address: "Berlin, Germany",
     bcgx: 152,
     ais: 4,
@@ -414,9 +390,8 @@ export function createPointsData() {
     lng: 13.404954
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Casablanca",
+    office: "DV Casablanca",
     address: "Casablanca, Morocco",
     bcgx: 3,
     ais: 0,
@@ -424,19 +399,17 @@ export function createPointsData() {
     lng: -7.5898434
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Dubai",
-    address: "Dubai, United Arab Emirates",
+    office: "DV Dubai",
+    address: "Dubai - United Arab Emirates",
     bcgx: 13,
     ais: 0,
     lat: 25.2048493,
     lng: 55.2707828
   })
   addData({
-    color: "white",
-    size: 20,
     city: "London",
+    office: "DV London",
     address: "London, UK",
     bcgx: 96,
     ais: 0,
@@ -444,9 +417,8 @@ export function createPointsData() {
     lng: -0.1275862
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Paris",
+    office: "DV Paris",
     address: "Paris, France",
     bcgx: 6,
     ais: 0,
@@ -454,9 +426,8 @@ export function createPointsData() {
     lng: 2.3522219
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Frankfurt",
+    office: "Frankfurt",
     address: "Frankfurt, Germany",
     bcgx: 21,
     ais: 18,
@@ -464,9 +435,8 @@ export function createPointsData() {
     lng: 8.6821267
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Hamburg",
+    office: "Hamburg",
     address: "Hamburg, Germany",
     bcgx: 3,
     ais: 3,
@@ -474,9 +444,8 @@ export function createPointsData() {
     lng: 9.9936818
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Helsinki",
+    office: "Helsinki",
     address: "Helsinki, Finland",
     bcgx: 3,
     ais: 3,
@@ -484,9 +453,8 @@ export function createPointsData() {
     lng: 24.938379
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Istanbul",
+    office: "Istanbul",
     address: "İstanbul, Turkey",
     bcgx: 1,
     ais: 1,
@@ -494,9 +462,8 @@ export function createPointsData() {
     lng: 28.9783589
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Johannesburg",
+    office: "Johannesburg",
     address: "Johannesburg, South Africa",
     bcgx: 3,
     ais: 3,
@@ -504,9 +471,8 @@ export function createPointsData() {
     lng: 28.0473051
   })
   addData({
-    color: "white",
-    size: 20,
     city: "London",
+    office: "London",
     address: "London, UK",
     bcgx: 50,
     ais: 44,
@@ -514,9 +480,8 @@ export function createPointsData() {
     lng: -0.1275862
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Madrid",
+    office: "Madrid",
     address: "Madrid, Spain",
     bcgx: 64,
     ais: 58,
@@ -524,9 +489,8 @@ export function createPointsData() {
     lng: -3.7037902
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Milan",
+    office: "Milan",
     address: "Milan, Metropolitan City of Milan, Italy",
     bcgx: 26,
     ais: 25,
@@ -534,9 +498,8 @@ export function createPointsData() {
     lng: 9.189982
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Munich",
+    office: "Munich",
     address: "Munich, Germany",
     bcgx: 56,
     ais: 45,
@@ -544,9 +507,8 @@ export function createPointsData() {
     lng: 11.5819806
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Oslo",
+    office: "Oslo",
     address: "Oslo, Norway",
     bcgx: 6,
     ais: 6,
@@ -554,9 +516,8 @@ export function createPointsData() {
     lng: 10.7522454
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Panama City",
+    office: "Panama City",
     address: "Panama City, FL, USA",
     bcgx: 1,
     ais: 1,
@@ -564,9 +525,8 @@ export function createPointsData() {
     lng: -85.6602058
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Paris",
+    office: "Paris",
     address: "Paris, France",
     bcgx: 126,
     ais: 100,
@@ -574,9 +534,8 @@ export function createPointsData() {
     lng: 2.3522219
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Berlin",
+    office: "Platinion Berlin",
     address: "Berlin, Germany",
     bcgx: 18,
     ais: 7,
@@ -584,9 +543,8 @@ export function createPointsData() {
     lng: 13.404954
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Casablanca",
+    office: "Platinion Casablanca",
     address: "Casablanca, Morocco",
     bcgx: 4,
     ais: 1,
@@ -594,19 +552,17 @@ export function createPointsData() {
     lng: -7.5898434
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Dubai",
-    address: "Dubai, United Arab Emirates",
+    office: "Platinion Dubai",
+    address: "Dubai - United Arab Emirates",
     bcgx: 3,
     ais: 0,
     lat: 25.2048493,
     lng: 55.2707828
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Frankfurt",
+    office: "Platinion Frankfurt",
     address: "Frankfurt, Germany",
     bcgx: 1,
     ais: 1,
@@ -614,9 +570,8 @@ export function createPointsData() {
     lng: 8.6821267
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Johannesburg",
+    office: "Platinion Johannesburg",
     address: "Johannesburg, South Africa",
     bcgx: 1,
     ais: 0,
@@ -624,9 +579,8 @@ export function createPointsData() {
     lng: 28.0473051
   })
   addData({
-    color: "white",
-    size: 20,
     city: "London",
+    office: "Platinion London",
     address: "London, UK",
     bcgx: 25,
     ais: 17,
@@ -634,9 +588,8 @@ export function createPointsData() {
     lng: -0.1275862
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Milan",
+    office: "Platinion Milan",
     address: "Milan, Metropolitan City of Milan, Italy",
     bcgx: 5,
     ais: 1,
@@ -644,9 +597,8 @@ export function createPointsData() {
     lng: 9.189982
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Paris",
+    office: "Platinion Paris",
     address: "Paris, France",
     bcgx: 1,
     ais: 0,
@@ -654,9 +606,8 @@ export function createPointsData() {
     lng: 2.3522219
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Prague",
+    office: "Prague",
     address: "Prague, Czechia",
     bcgx: 2,
     ais: 1,
@@ -664,9 +615,8 @@ export function createPointsData() {
     lng: 14.4378005
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Rio de Janeiro",
+    office: "Rio de Janeiro",
     address: "Rio de Janeiro, State of Rio de Janeiro, Brazil",
     bcgx: 2,
     ais: 1,
@@ -674,9 +624,8 @@ export function createPointsData() {
     lng: -43.1728965
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Santiago",
+    office: "Santiago",
     address: "Santiago, Santiago Metropolitan Region, Chile",
     bcgx: 14,
     ais: 11,
@@ -684,9 +633,8 @@ export function createPointsData() {
     lng: -70.6692655
   })
   addData({
-    color: "white",
-    size: 20,
     city: "São Paulo",
+    office: "São Paulo",
     address: "São Paulo, State of São Paulo, Brazil",
     bcgx: 55,
     ais: 48,
@@ -694,9 +642,8 @@ export function createPointsData() {
     lng: -46.6395571
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Stockholm",
+    office: "Stockholm",
     address: "Stockholm, Sweden",
     bcgx: 18,
     ais: 18,
@@ -704,9 +651,8 @@ export function createPointsData() {
     lng: 18.0685808
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Stuttgart",
+    office: "Stuttgart",
     address: "Stuttgart, Germany",
     bcgx: 1,
     ais: 1,
@@ -714,9 +660,8 @@ export function createPointsData() {
     lng: 9.1829321
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Tel Aviv",
+    office: "Tel Aviv",
     address: "Tel Aviv-Yafo, Israel",
     bcgx: 2,
     ais: 1,
@@ -724,9 +669,8 @@ export function createPointsData() {
     lng: 34.7817676
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Vienna",
+    office: "Vienna",
     address: "Vienna, Austria",
     bcgx: 5,
     ais: 5,
@@ -734,9 +678,8 @@ export function createPointsData() {
     lng: 16.3738189
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Warsaw",
+    office: "Warsaw",
     address: "Warsaw, Poland",
     bcgx: 20,
     ais: 17,
@@ -744,9 +687,8 @@ export function createPointsData() {
     lng: 21.0122287
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Zürich",
+    office: "Zürich",
     address: "Zürich, Switzerland",
     bcgx: 17,
     ais: 16,
@@ -754,9 +696,8 @@ export function createPointsData() {
     lng: 8.541694
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Chicago",
+    office: "ACC - Chicago",
     address: "Chicago, IL, USA",
     bcgx: 57,
     ais: 52,
@@ -764,9 +705,8 @@ export function createPointsData() {
     lng: -87.6297982
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Atlanta",
+    office: "Atlanta",
     address: "Atlanta, GA, USA",
     bcgx: 12,
     ais: 9,
@@ -774,9 +714,8 @@ export function createPointsData() {
     lng: -84.3879824
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Austin",
+    office: "Austin",
     address: "Austin, TX, USA",
     bcgx: 4,
     ais: 4,
@@ -784,9 +723,8 @@ export function createPointsData() {
     lng: -97.7430608
   })
   addData({
-    color: "white",
-    size: 20,
     city: "San Francisco",
+    office: "Bay Area - San Francisco",
     address: "San Francisco, CA, USA",
     bcgx: 32,
     ais: 26,
@@ -794,9 +732,8 @@ export function createPointsData() {
     lng: -122.4194155
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Silicon Valley",
+    office: "Bay Area - Silicon Valley",
     address: "Silicon Valley, CA, USA",
     bcgx: 7,
     ais: 7,
@@ -804,9 +741,8 @@ export function createPointsData() {
     lng: -122.0575434
   })
   addData({
-    color: "white",
-    size: 20,
     city: "BCG Federal Corp",
+    office: "BCG Federal Corp",
     address: "",
     bcgx: 12,
     ais: 12,
@@ -814,9 +750,8 @@ export function createPointsData() {
     lng: 0
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Atlanta",
+    office: "BCG Nexus Atlanta",
     address: "Atlanta, GA, USA",
     bcgx: 4,
     ais: 0,
@@ -824,9 +759,8 @@ export function createPointsData() {
     lng: -84.3879824
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Boston",
+    office: "Boston",
     address: "Boston, MA, USA",
     bcgx: 115,
     ais: 99,
@@ -834,9 +768,8 @@ export function createPointsData() {
     lng: -71.0588801
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Chicago",
+    office: "Chicago",
     address: "Chicago, IL, USA",
     bcgx: 33,
     ais: 30,
@@ -844,9 +777,8 @@ export function createPointsData() {
     lng: -87.6297982
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Dallas",
+    office: "Dallas",
     address: "Dallas, TX, USA",
     bcgx: 14,
     ais: 13,
@@ -854,9 +786,8 @@ export function createPointsData() {
     lng: -96.7969879
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Denver",
+    office: "Denver",
     address: "Denver, CO, USA",
     bcgx: 6,
     ais: 6,
@@ -864,9 +795,8 @@ export function createPointsData() {
     lng: -104.990251
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Great Lakes",
+    office: "DV Great Lakes",
     address: "The Great Lakes",
     bcgx: 42,
     ais: 0,
@@ -874,9 +804,8 @@ export function createPointsData() {
     lng: -82.4846115
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Manhattan Beach",
+    office: "DV Manhattan Beach",
     address: "Manhattan Beach, CA 90266, USA",
     bcgx: 144,
     ais: 4,
@@ -884,9 +813,8 @@ export function createPointsData() {
     lng: -118.4109089
   })
   addData({
-    color: "white",
-    size: 20,
     city: "New York",
+    office: "DV New York",
     address: "New York, NY, USA",
     bcgx: 145,
     ais: 1,
@@ -894,9 +822,8 @@ export function createPointsData() {
     lng: -74.0059728
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Seattle",
+    office: "DV Seattle",
     address: "Seattle, WA, USA",
     bcgx: 4,
     ais: 0,
@@ -904,9 +831,8 @@ export function createPointsData() {
     lng: -122.3320708
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Global Services",
+    office: "Global Services",
     address: "80 M St SE, Washington, DC 20003, USA",
     bcgx: 12,
     ais: 0,
@@ -914,9 +840,8 @@ export function createPointsData() {
     lng: -77.0063728
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Boston",
+    office: "Global Services Boston",
     address: "Boston, MA, USA",
     bcgx: 2,
     ais: 0,
@@ -924,9 +849,8 @@ export function createPointsData() {
     lng: -71.0588801
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Houston",
+    office: "Houston",
     address: "Houston, TX, USA",
     bcgx: 5,
     ais: 5,
@@ -934,9 +858,8 @@ export function createPointsData() {
     lng: -95.3698028
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Los Angeles",
+    office: "Los Angeles",
     address: "Los Angeles, CA, USA",
     bcgx: 29,
     ais: 28,
@@ -944,9 +867,8 @@ export function createPointsData() {
     lng: -118.2436849
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Miami",
+    office: "Miami",
     address: "Miami, FL, USA",
     bcgx: 7,
     ais: 7,
@@ -954,9 +876,8 @@ export function createPointsData() {
     lng: -80.1917902
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Minneapolis",
+    office: "Minneapolis",
     address: "Minneapolis, MN, USA",
     bcgx: 1,
     ais: 1,
@@ -964,9 +885,8 @@ export function createPointsData() {
     lng: -93.2650108
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Montreal",
+    office: "Montreal",
     address: "Montreal, QC, Canada",
     bcgx: 3,
     ais: 3,
@@ -974,9 +894,8 @@ export function createPointsData() {
     lng: -73.5673919
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Nashville",
+    office: "Nashville",
     address: "Nashville, TN, USA",
     bcgx: 1,
     ais: 1,
@@ -984,9 +903,8 @@ export function createPointsData() {
     lng: -86.7816016
   })
   addData({
-    color: "white",
-    size: 20,
     city: "New Jersey",
+    office: "New Jersey",
     address: "New Jersey, USA",
     bcgx: 7,
     ais: 7,
@@ -994,9 +912,8 @@ export function createPointsData() {
     lng: -74.4056612
   })
   addData({
-    color: "white",
-    size: 20,
     city: "New York",
+    office: "New York",
     address: "New York, NY, USA",
     bcgx: 102,
     ais: 93,
@@ -1004,9 +921,8 @@ export function createPointsData() {
     lng: -74.0059728
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Philadelphia",
+    office: "Philadelphia",
     address: "Philadelphia, PA, USA",
     bcgx: 3,
     ais: 1,
@@ -1014,9 +930,8 @@ export function createPointsData() {
     lng: -75.1652215
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Pittsburgh",
+    office: "Pittsburgh",
     address: "Pittsburgh, PA, USA",
     bcgx: 30,
     ais: 17,
@@ -1024,9 +939,8 @@ export function createPointsData() {
     lng: -79.9958864
   })
   addData({
-    color: "white",
-    size: 20,
     city: "San Diego",
+    office: "San Diego",
     address: "San Diego, CA, USA",
     bcgx: 3,
     ais: 3,
@@ -1034,9 +948,8 @@ export function createPointsData() {
     lng: -117.1610838
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Seattle",
+    office: "Seattle",
     address: "Seattle, WA, USA",
     bcgx: 41,
     ais: 35,
@@ -1044,9 +957,8 @@ export function createPointsData() {
     lng: -122.3320708
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Toronto",
+    office: "Toronto",
     address: "Toronto, ON, Canada",
     bcgx: 34,
     ais: 30,
@@ -1054,9 +966,8 @@ export function createPointsData() {
     lng: -79.3831843
   })
   addData({
-    color: "white",
-    size: 20,
     city: "Washington, D.C.",
+    office: "Washington, D.C.",
     address: "Washington, DC, USA",
     bcgx: 21,
     ais: 18,
